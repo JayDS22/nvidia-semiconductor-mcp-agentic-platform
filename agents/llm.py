@@ -15,7 +15,14 @@ load_dotenv()
 BACKEND = (os.getenv("LLM_BACKEND") or "auto").lower()
 NVIDIA_KEY = os.getenv("NVIDIA_API_KEY", "")
 ANTHROPIC_KEY = os.getenv("ANTHROPIC_API_KEY", "")
-NVIDIA_MODEL = os.getenv("NVIDIA_MODEL", "meta/llama-3.3-70b-instruct")
+NVIDIA_MODEL = os.getenv("NVIDIA_MODEL", "nvidia/llama-3.1-nemotron-70b-instruct")
+# Auto-fallback chain if the primary model returns 404 (NIM catalog changes).
+# All three verified live at https://integrate.api.nvidia.com/v1/models (Sep 2026).
+NVIDIA_FALLBACK_MODELS = [
+    "nvidia/llama-3.1-nemotron-70b-instruct",
+    "nvidia/llama-3.1-nemotron-51b-instruct",
+    "mistralai/mistral-nemotron",
+]
 ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-6")
 
 
@@ -45,36 +52,41 @@ def chat(system: str, user: str, tools: list[dict] | None = None, temperature: f
 def _nvidia_chat(system: str, user: str, tools: list[dict] | None, temperature: float) -> dict[str, Any]:
     import requests
 
-    headers = {"Authorization": f"Bearer {NVIDIA_KEY}", "Content-Type": "application/json"}
-    payload = {
-        "model": NVIDIA_MODEL,
-        "messages": [
-            {"role": "system", "content": system},
-            {"role": "user", "content": user},
-        ],
-        "temperature": temperature,
-        "max_tokens": 2048,
-    }
-    if tools:
-        payload["tools"] = [{"type": "function", "function": t} for t in tools]
-        payload["tool_choice"] = "auto"
+    # Try primary model, fall back to alternates on 404 (NIM catalog can change)
+    tried: list[str] = []
+    models_to_try = [NVIDIA_MODEL] + [m for m in NVIDIA_FALLBACK_MODELS if m != NVIDIA_MODEL]
 
-    r = requests.post("https://integrate.api.nvidia.com/v1/chat/completions", headers=headers, json=payload, timeout=60)
-    if r.status_code == 404:
-        raise RuntimeError(
-            f"NVIDIA NIM returned 404 for model '{NVIDIA_MODEL}'. "
-            f"That model slug isn't live on NIM. Try one of: "
-            f"'meta/llama-3.3-70b-instruct' (recommended default), "
-            f"'nvidia/llama-3.1-nemotron-70b-instruct', "
-            f"'mistralai/mixtral-8x7b-instruct-v0.1'. "
-            f"Set NVIDIA_MODEL env var to override."
-        )
-    r.raise_for_status()
-    msg = r.json()["choices"][0]["message"]
-    tool_calls = []
-    for tc in msg.get("tool_calls") or []:
-        tool_calls.append({"name": tc["function"]["name"], "args": json.loads(tc["function"]["arguments"] or "{}")})
-    return {"content": msg.get("content") or "", "tool_calls": tool_calls}
+    headers = {"Authorization": f"Bearer {NVIDIA_KEY}", "Content-Type": "application/json"}
+    for model in models_to_try:
+        payload: dict[str, Any] = {
+            "model": model,
+            "messages": [
+                {"role": "system", "content": system},
+                {"role": "user", "content": user},
+            ],
+            "temperature": temperature,
+            "max_tokens": 2048,
+        }
+        if tools:
+            payload["tools"] = [{"type": "function", "function": t} for t in tools]
+            payload["tool_choice"] = "auto"
+
+        r = requests.post("https://integrate.api.nvidia.com/v1/chat/completions", headers=headers, json=payload, timeout=60)
+        tried.append(f"{model}={r.status_code}")
+        if r.status_code == 404:
+            continue  # try next fallback
+        r.raise_for_status()
+        msg = r.json()["choices"][0]["message"]
+        tool_calls = []
+        for tc in msg.get("tool_calls") or []:
+            tool_calls.append({"name": tc["function"]["name"], "args": json.loads(tc["function"]["arguments"] or "{}")})
+        return {"content": msg.get("content") or "", "tool_calls": tool_calls}
+
+    raise RuntimeError(
+        f"All NVIDIA NIM models returned 404. Tried: {tried}. "
+        f"Check current catalog at https://integrate.api.nvidia.com/v1/models "
+        f"and set NVIDIA_MODEL env var to a live one."
+    )
 
 
 # ---------------------------------------------------------------------------
