@@ -15,13 +15,14 @@ load_dotenv()
 BACKEND = (os.getenv("LLM_BACKEND") or "auto").lower()
 NVIDIA_KEY = os.getenv("NVIDIA_API_KEY", "")
 ANTHROPIC_KEY = os.getenv("ANTHROPIC_API_KEY", "")
-NVIDIA_MODEL = os.getenv("NVIDIA_MODEL", "nvidia/llama-3.1-nemotron-70b-instruct")
+NVIDIA_MODEL = os.getenv("NVIDIA_MODEL", "nvidia/llama-3.1-nemotron-51b-instruct")
 # Auto-fallback chain if the primary model returns 404 (NIM catalog changes).
 # All three verified live at https://integrate.api.nvidia.com/v1/models (Sep 2026).
+# 51b default: much faster than 70b under NIM free tier (avoids read-timeouts on multi-tool queries).
 NVIDIA_FALLBACK_MODELS = [
-    "nvidia/llama-3.1-nemotron-70b-instruct",
     "nvidia/llama-3.1-nemotron-51b-instruct",
     "mistralai/mistral-nemotron",
+    "nvidia/llama-3.1-nemotron-70b-instruct",
 ]
 ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-6")
 
@@ -65,13 +66,13 @@ def _nvidia_chat(system: str, user: str, tools: list[dict] | None, temperature: 
                 {"role": "user", "content": user},
             ],
             "temperature": temperature,
-            "max_tokens": 2048,
+            "max_tokens": 1024,  # trimmed from 2048 — synthesized answers rarely exceed this + reduces wall time
         }
         if tools:
             payload["tools"] = [{"type": "function", "function": t} for t in tools]
             payload["tool_choice"] = "auto"
 
-        r = requests.post("https://integrate.api.nvidia.com/v1/chat/completions", headers=headers, json=payload, timeout=60)
+        r = requests.post("https://integrate.api.nvidia.com/v1/chat/completions", headers=headers, json=payload, timeout=180)
         tried.append(f"{model}={r.status_code}")
         if r.status_code == 404:
             continue  # try next fallback
