@@ -1,0 +1,209 @@
+{
+  "SUP-001": {
+    "supplier_id": "SUP-001",
+    "name": "ACME-Photoresist",
+    "category": "photoresist",
+    "quality_score": 0.92,
+    "lot_risk_score": 0.088,
+    "inventory_days_on_hand": 8,
+    "certifications": [
+      "SEMI-S2",
+      "IATF16949",
+      "ISO9001"
+    ],
+    "last_audit_date": "2026-06-12",
+    "critical_risk_flag": false
+  },
+  "SUP-002": {
+    "supplier_id": "SUP-002",
+    "name": "TitanEtch-Chemicals",
+    "category": "etchant",
+    "quality_score": 0.88,
+    "lot_risk_score": 0.134,
+    "inventory_days_on_hand": 41,
+    "certifications": [
+      "AS9100"
+    ],
+    "last_audit_date": "2026-01-18",
+    "critical_risk_flag": false
+  },
+  "SUP-003": {
+    "supplier_id": "SUP-003",
+    "name": "PureGas-Deposition",
+    "category": "cvd_precursor",
+    "quality_score": 0.95,
+    "lot_risk_score": 0.022,
+    "inventory_days_on_hand": 12,
+    "certifications": [
+      "IATF16949"
+    ],
+    "last_audit_date": "2025-12-07",
+    "critical_risk_flag": false
+  },
+  "SUP-004": {
+    "supplier_id": "SUP-004",
+    "name": "IonBeam-Systems",
+    "category": "implant_source",
+    "quality_score": 0.91,
+    "lot_risk_score": 0.096,
+    "inventory_days_on_hand": 42,
+    "certifications": [
+      "AS9100"
+    ],
+    "last_audit_date": "2026-01-20",
+    "critical_risk_flag": false
+  },
+  "SUP-005": {
+    "supplier_id": "SUP-005",
+    "name": "ThermoAnneal-Corp",
+    "category": "annealing_furnace_parts",
+    "quality_score": 0.89,
+    "lot_risk_score": 0.093,
+    "inventory_days_on_hand": 44,
+    "certifications": [
+      "ISO9001",
+      "IATF16949"
+    ],
+    "last_audit_date": "2025-08-30",
+    "critical_risk_flag": false
+  },
+  "SUP-006": {
+    "supplier_id": "SUP-006",
+    "name": "SlurryMaster-CMP",
+    "category": "cmp_slurry",
+    "quality_score": 0.72,
+    "lot_risk_score": 0.275,
+    "inventory_days_on_hand": 6,
+    "certifications": [
+      "IATF16949"
+    ],
+    "last_audit_date": "2026-03-03",
+    "critical_risk_flag": true
+  },
+  "SUP-007": {
+    "supplier_id": "SUP-007",
+    "name": "MetalDep-Precision",
+    "category": "sputter_target",
+    "quality_score": 0.94,
+    "lot_risk_score": 0.036,
+    "inventory_days_on_hand": 31,
+    "certifications": [
+      "SEMI-S2"
+    ],
+    "last_audit_date": "2026-02-27",
+    "critical_risk_flag": false
+  },
+  "SUP-008": {
+    "supplier_id": "SUP-008",
+    "name": "QualiTest-Probes",
+    "category": "test_probes",
+    "quality_score": 0.9,
+    "lot_risk_score": 0.106,
+    "inventory_days_on_hand": 9,
+    "certifications": [
+      "SEMI-S8",
+      "ISO9001",
+      "IATF16949"
+    ],
+    "last_audit_date": "2026-07-13",
+    "critical_risk_flag": false
+  },
+  "SUP-009": {
+    "supplier_id": "SUP-009",
+    "name": "WaferSource-Prime",
+    "category": "silicon_wafers",
+    "quality_score": 0.97,
+    "lot_risk_score": 0.033,
+    "inventory_days_on_hand": 30,
+    "certifications": [
+      "IATF16949",
+      "ISO9001",
+      "SEMI-S8"
+    ],
+    "last_audit_date": "2025-09-18",
+    "critical_risk_flag": false
+  },
+  "SUP-010": {
+    "supplier_id": "SUP-010",
+    "name": "OptiMask-Systems",
+    "category": "photomask",
+    "quality_score": 0.93,
+    "lot_risk_score": 0.054,
+    "inventory_days_on_hand": 25,
+    "certifications": [
+      "IATF16949"
+    ],
+    "last_audit_date": "2026-07-02",
+    "critical_risk_flag": false
+  },
+  "SUP-011": {
+    "supplier_id": "SUP-011",
+    "name": "ChemPure-Solvents",
+    "category": "cleaning_solvents",
+    "quality_score": 0.85,
+    "lot_risk_score": 0.143,
+    "inventory_days_on_hand": 36,
+    "certifications": [
+      "SEMI-S2",
+      "IATF16949",
+      "SEMI-S8"
+    ],
+    "last_audit_date": "2026-02-22",
+    "critical_risk_flag": false
+  },
+  "SUP-012": {
+    "supplier_id": "SUP-012",
+    "name": "GasFlow-Ultra",
+    "category": "process_gases",
+    "quality_score": 0.91,
+    "lot_risk_score": 0.073,
+    "inventory_days_on_hand": 24,
+    "certifications": [
+      "ISO9001",
+      "IATF16949",
+      "SEMI-S2"
+    ],
+    "last_audit_date": "2026-04-19",
+    "critical_risk_flag": false
+  },
+  "SUP-013": {
+    "supplier_id": "SUP-013",
+    "name": "PhotoChem-Alt",
+    "category": "photoresist",
+    "quality_score": 0.68,
+    "lot_risk_score": 0.3,
+    "inventory_days_on_hand": 8,
+    "certifications": [
+      "AS9100",
+      "IATF16949"
+    ],
+    "last_audit_date": "2025-09-06",
+    "critical_risk_flag": true
+  },
+  "SUP-014": {
+    "supplier_id": "SUP-014",
+    "name": "EtchPro-Systems",
+    "category": "etchant",
+    "quality_score": 0.87,
+    "lot_risk_score": 0.119,
+    "inventory_days_on_hand": 10,
+    "certifications": [
+      "ISO9001"
+    ],
+    "last_audit_date": "2026-03-14",
+    "critical_risk_flag": false
+  },
+  "SUP-015": {
+    "supplier_id": "SUP-015",
+    "name": "MetalTarget-Discount",
+    "category": "sputter_target",
+    "quality_score": 0.74,
+    "lot_risk_score": 0.254,
+    "inventory_days_on_hand": 3,
+    "certifications": [
+      "AS9100"
+    ],
+    "last_audit_date": "2025-08-20",
+    "critical_risk_flag": true
+  }
+}

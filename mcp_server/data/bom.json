@@ -1,0 +1,343 @@
+{
+  "D-4471": {
+    "design_id": "D-4471",
+    "revision": "rev.5.9",
+    "process_node_nm": 10,
+    "die_size_mm2": 190.5,
+    "bom_parts": [
+      {
+        "part_id": "P-4471-SILI-189",
+        "part_name": "silicon_wafer_substrate",
+        "supplier_id": "SUP-009",
+        "quantity_per_wafer": 1,
+        "cad_layer": 19
+      },
+      {
+        "part_id": "P-4471-CVD_-532",
+        "part_name": "cvd_precursor_tetraethyl",
+        "supplier_id": "SUP-003",
+        "quantity_per_wafer": 3,
+        "cad_layer": 2
+      },
+      {
+        "part_id": "P-4471-ETCH-195",
+        "part_name": "etchant_primary",
+        "supplier_id": "SUP-002",
+        "quantity_per_wafer": 4,
+        "cad_layer": 7
+      },
+      {
+        "part_id": "P-4471-TEST-338",
+        "part_name": "test_probe_card",
+        "supplier_id": "SUP-008",
+        "quantity_per_wafer": 1,
+        "cad_layer": 17
+      },
+      {
+        "part_id": "P-4471-PHOT-674",
+        "part_name": "photoresist_positive",
+        "supplier_id": "SUP-001",
+        "quantity_per_wafer": 2,
+        "cad_layer": 7
+      },
+      {
+        "part_id": "P-4471-DOPA-833",
+        "part_name": "dopant_arsenic",
+        "supplier_id": "SUP-004",
+        "quantity_per_wafer": 1,
+        "cad_layer": 21
+      },
+      {
+        "part_id": "P-4471-PROC-818",
+        "part_name": "process_gas_argon",
+        "supplier_id": "SUP-012",
+        "quantity_per_wafer": 8,
+        "cad_layer": 18
+      },
+      {
+        "part_id": "P-4471-CLEA-529",
+        "part_name": "cleaning_solvent_ipa",
+        "supplier_id": "SUP-011",
+        "quantity_per_wafer": 5,
+        "cad_layer": 8
+      }
+    ]
+  },
+  "D-5023": {
+    "design_id": "D-5023",
+    "revision": "rev.6.4",
+    "process_node_nm": 28,
+    "die_size_mm2": 202.2,
+    "bom_parts": [
+      {
+        "part_id": "P-5023-PHOT-489",
+        "part_name": "photoresist_positive",
+        "supplier_id": "SUP-001",
+        "quantity_per_wafer": 2,
+        "cad_layer": 4
+      },
+      {
+        "part_id": "P-5023-ANNE-467",
+        "part_name": "annealing_ambient_gas",
+        "supplier_id": "SUP-005",
+        "quantity_per_wafer": 2,
+        "cad_layer": 28
+      },
+      {
+        "part_id": "P-5023-DOPA-452",
+        "part_name": "dopant_arsenic",
+        "supplier_id": "SUP-004",
+        "quantity_per_wafer": 1,
+        "cad_layer": 20
+      },
+      {
+        "part_id": "P-5023-CVD_-370",
+        "part_name": "cvd_precursor_tetraethyl",
+        "supplier_id": "SUP-003",
+        "quantity_per_wafer": 3,
+        "cad_layer": 26
+      },
+      {
+        "part_id": "P-5023-PROC-144",
+        "part_name": "process_gas_argon",
+        "supplier_id": "SUP-012",
+        "quantity_per_wafer": 8,
+        "cad_layer": 24
+      },
+      {
+        "part_id": "P-5023-PHOT-570",
+        "part_name": "photomask_set",
+        "supplier_id": "SUP-010",
+        "quantity_per_wafer": 6,
+        "cad_layer": 18
+      },
+      {
+        "part_id": "P-5023-CMP_-227",
+        "part_name": "cmp_slurry_oxide",
+        "supplier_id": "SUP-006",
+        "quantity_per_wafer": 3,
+        "cad_layer": 30
+      },
+      {
+        "part_id": "P-5023-SILI-487",
+        "part_name": "silicon_wafer_substrate",
+        "supplier_id": "SUP-009",
+        "quantity_per_wafer": 1,
+        "cad_layer": 3
+      }
+    ]
+  },
+  "D-5188": {
+    "design_id": "D-5188",
+    "revision": "rev.4.8",
+    "process_node_nm": 7,
+    "die_size_mm2": 171.1,
+    "bom_parts": [
+      {
+        "part_id": "P-5188-TEST-489",
+        "part_name": "test_probe_card",
+        "supplier_id": "SUP-008",
+        "quantity_per_wafer": 1,
+        "cad_layer": 9
+      },
+      {
+        "part_id": "P-5188-ETCH-750",
+        "part_name": "etchant_primary",
+        "supplier_id": "SUP-014",
+        "quantity_per_wafer": 4,
+        "cad_layer": 27
+      },
+      {
+        "part_id": "P-5188-PHOT-473",
+        "part_name": "photomask_set",
+        "supplier_id": "SUP-010",
+        "quantity_per_wafer": 6,
+        "cad_layer": 6
+      },
+      {
+        "part_id": "P-5188-SILI-479",
+        "part_name": "silicon_wafer_substrate",
+        "supplier_id": "SUP-009",
+        "quantity_per_wafer": 1,
+        "cad_layer": 12
+      },
+      {
+        "part_id": "P-5188-CLEA-314",
+        "part_name": "cleaning_solvent_ipa",
+        "supplier_id": "SUP-011",
+        "quantity_per_wafer": 5,
+        "cad_layer": 22
+      },
+      {
+        "part_id": "P-5188-ANNE-373",
+        "part_name": "annealing_ambient_gas",
+        "supplier_id": "SUP-005",
+        "quantity_per_wafer": 2,
+        "cad_layer": 23
+      },
+      {
+        "part_id": "P-5188-PHOT-723",
+        "part_name": "photoresist_positive",
+        "supplier_id": "SUP-001",
+        "quantity_per_wafer": 2,
+        "cad_layer": 21
+      },
+      {
+        "part_id": "P-5188-SPUT-646",
+        "part_name": "sputter_target_aluminum",
+        "supplier_id": "SUP-007",
+        "quantity_per_wafer": 2,
+        "cad_layer": 24
+      },
+      {
+        "part_id": "P-5188-PROC-350",
+        "part_name": "process_gas_argon",
+        "supplier_id": "SUP-012",
+        "quantity_per_wafer": 8,
+        "cad_layer": 6
+      },
+      {
+        "part_id": "P-5188-CVD_-573",
+        "part_name": "cvd_precursor_tetraethyl",
+        "supplier_id": "SUP-003",
+        "quantity_per_wafer": 3,
+        "cad_layer": 13
+      }
+    ]
+  },
+  "D-6104": {
+    "design_id": "D-6104",
+    "revision": "rev.5.9",
+    "process_node_nm": 14,
+    "die_size_mm2": 121.1,
+    "bom_parts": [
+      {
+        "part_id": "P-6104-ETCH-317",
+        "part_name": "etchant_primary",
+        "supplier_id": "SUP-014",
+        "quantity_per_wafer": 4,
+        "cad_layer": 21
+      },
+      {
+        "part_id": "P-6104-SILI-611",
+        "part_name": "silicon_wafer_substrate",
+        "supplier_id": "SUP-009",
+        "quantity_per_wafer": 1,
+        "cad_layer": 13
+      },
+      {
+        "part_id": "P-6104-DOPA-758",
+        "part_name": "dopant_arsenic",
+        "supplier_id": "SUP-004",
+        "quantity_per_wafer": 1,
+        "cad_layer": 15
+      },
+      {
+        "part_id": "P-6104-ANNE-246",
+        "part_name": "annealing_ambient_gas",
+        "supplier_id": "SUP-005",
+        "quantity_per_wafer": 2,
+        "cad_layer": 9
+      },
+      {
+        "part_id": "P-6104-CVD_-242",
+        "part_name": "cvd_precursor_tetraethyl",
+        "supplier_id": "SUP-003",
+        "quantity_per_wafer": 3,
+        "cad_layer": 8
+      },
+      {
+        "part_id": "P-6104-CLEA-862",
+        "part_name": "cleaning_solvent_ipa",
+        "supplier_id": "SUP-011",
+        "quantity_per_wafer": 5,
+        "cad_layer": 18
+      },
+      {
+        "part_id": "P-6104-PHOT-651",
+        "part_name": "photomask_set",
+        "supplier_id": "SUP-010",
+        "quantity_per_wafer": 6,
+        "cad_layer": 9
+      },
+      {
+        "part_id": "P-6104-CMP_-864",
+        "part_name": "cmp_slurry_oxide",
+        "supplier_id": "SUP-006",
+        "quantity_per_wafer": 3,
+        "cad_layer": 19
+      }
+    ]
+  },
+  "D-6289": {
+    "design_id": "D-6289",
+    "revision": "rev.4.1",
+    "process_node_nm": 10,
+    "die_size_mm2": 132.4,
+    "bom_parts": [
+      {
+        "part_id": "P-6289-SPUT-494",
+        "part_name": "sputter_target_aluminum",
+        "supplier_id": "SUP-007",
+        "quantity_per_wafer": 2,
+        "cad_layer": 13
+      },
+      {
+        "part_id": "P-6289-CMP_-710",
+        "part_name": "cmp_slurry_oxide",
+        "supplier_id": "SUP-006",
+        "quantity_per_wafer": 3,
+        "cad_layer": 15
+      },
+      {
+        "part_id": "P-6289-PHOT-641",
+        "part_name": "photomask_set",
+        "supplier_id": "SUP-010",
+        "quantity_per_wafer": 6,
+        "cad_layer": 9
+      },
+      {
+        "part_id": "P-6289-SILI-666",
+        "part_name": "silicon_wafer_substrate",
+        "supplier_id": "SUP-009",
+        "quantity_per_wafer": 1,
+        "cad_layer": 28
+      },
+      {
+        "part_id": "P-6289-TEST-111",
+        "part_name": "test_probe_card",
+        "supplier_id": "SUP-008",
+        "quantity_per_wafer": 1,
+        "cad_layer": 22
+      },
+      {
+        "part_id": "P-6289-CLEA-838",
+        "part_name": "cleaning_solvent_ipa",
+        "supplier_id": "SUP-011",
+        "quantity_per_wafer": 5,
+        "cad_layer": 4
+      },
+      {
+        "part_id": "P-6289-DOPA-798",
+        "part_name": "dopant_arsenic",
+        "supplier_id": "SUP-004",
+        "quantity_per_wafer": 1,
+        "cad_layer": 29
+      },
+      {
+        "part_id": "P-6289-ANNE-649",
+        "part_name": "annealing_ambient_gas",
+        "supplier_id": "SUP-005",
+        "quantity_per_wafer": 2,
+        "cad_layer": 25
+      },
+      {
+        "part_id": "P-6289-ETCH-887",
+        "part_name": "etchant_primary",
+        "supplier_id": "SUP-014",
+        "quantity_per_wafer": 4,
+        "cad_layer": 21
+      }
+    ]
+  }
+}
