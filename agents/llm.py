@@ -15,7 +15,7 @@ load_dotenv()
 BACKEND = (os.getenv("LLM_BACKEND") or "auto").lower()
 NVIDIA_KEY = os.getenv("NVIDIA_API_KEY", "")
 ANTHROPIC_KEY = os.getenv("ANTHROPIC_API_KEY", "")
-NVIDIA_MODEL = os.getenv("NVIDIA_MODEL", "nvidia/nemotron-4-340b-instruct")
+NVIDIA_MODEL = os.getenv("NVIDIA_MODEL", "meta/llama-3.3-70b-instruct")
 ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-6")
 
 
@@ -60,6 +60,15 @@ def _nvidia_chat(system: str, user: str, tools: list[dict] | None, temperature: 
         payload["tool_choice"] = "auto"
 
     r = requests.post("https://integrate.api.nvidia.com/v1/chat/completions", headers=headers, json=payload, timeout=60)
+    if r.status_code == 404:
+        raise RuntimeError(
+            f"NVIDIA NIM returned 404 for model '{NVIDIA_MODEL}'. "
+            f"That model slug isn't live on NIM. Try one of: "
+            f"'meta/llama-3.3-70b-instruct' (recommended default), "
+            f"'nvidia/llama-3.1-nemotron-70b-instruct', "
+            f"'mistralai/mixtral-8x7b-instruct-v0.1'. "
+            f"Set NVIDIA_MODEL env var to override."
+        )
     r.raise_for_status()
     msg = r.json()["choices"][0]["message"]
     tool_calls = []
