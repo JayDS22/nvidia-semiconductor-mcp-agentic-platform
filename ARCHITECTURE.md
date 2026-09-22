@@ -2,9 +2,9 @@
 
 ## Design goals
 
-1. **MCP as the tool boundary.** Every enterprise system (PLM, MES, ERP) is wrapped as an MCP tool namespace. Agents don't call SQL — they call `mes.get_process_steps(lot_id)`. This keeps agents deployable against any real ERP/MES/PLM backend by swapping the tool implementations.
+1. **MCP as the tool boundary.** Every enterprise system (PLM, MES, ERP) is wrapped as an MCP tool namespace. Agents don't call SQL - they call `mes.get_process_steps(lot_id)`. This keeps agents deployable against any real ERP/MES/PLM backend by swapping the tool implementations.
 2. **Agent = domain expertise + tool ownership.** Each agent owns a namespace and knows when to fire which tool. Supervisor routes; agents execute; synthesizer writes the answer.
-3. **Deterministic mock data.** Every wafer lot / BOM / supplier is generated from `seed=42`. Same repo, same demo, every time — recruiter clicks and sees identical results.
+3. **Deterministic mock data.** Every wafer lot / BOM / supplier is generated from `seed=42`. Same repo, same demo, every time - recruiter clicks and sees identical results.
 4. **LLM-backend-agnostic.** Runs on NVIDIA NIM (Nemotron), Anthropic Claude, or a mock router. Zero code changes to swap.
 
 ## Agent-to-tool ownership
@@ -66,10 +66,10 @@ These correlations let the demo queries produce non-trivial, real-shaped answers
 
 The `TOOL_REGISTRY` in `mcp_server/server.py` supports **both**:
 
-- **In-process dispatch** (default in the Streamlit app) — agents call `call_tool(name, **kwargs)` directly, no network round-trip. Faster demo, no MCP client setup.
-- **MCP protocol** (via `python -m mcp_server.server`) — spins up a real FastMCP stdio server, callable from any MCP client (Claude Desktop, Cursor, etc.).
+- **In-process dispatch** (default in the Streamlit app) - agents call `call_tool(name, **kwargs)` directly, no network round-trip. Faster demo, no MCP client setup.
+- **MCP protocol** (via `python -m mcp_server.server`) - spins up a real FastMCP stdio server, callable from any MCP client (Claude Desktop, Cursor, etc.).
 
-The second mode is what NVIDIA IT would deploy in production — the MCP server runs as a service, and every agent framework (LangGraph, AutoGen, Microsoft Agent Framework, MCP-native tools) can call the same tool surface.
+The second mode is what NVIDIA IT would deploy in production - the MCP server runs as a service, and every agent framework (LangGraph, AutoGen, Microsoft Agent Framework, MCP-native tools) can call the same tool surface.
 
 ## Extending to production
 
@@ -83,7 +83,7 @@ To swap mock data for a real fab:
 
 ## Limitations
 
-- No memory across queries — each query is stateless.
+- No memory across queries - each query is stateless.
 - LLM cost is not tracked in the UI (add `usage.input_tokens * price` per turn for production).
 - The supervisor's routing is keyword-based for demo speed; a real deployment would use an LLM-based router with a routing schema.
 - Tool schemas are hand-written; a real MCP server auto-generates them from Python function signatures + docstrings via FastMCP.

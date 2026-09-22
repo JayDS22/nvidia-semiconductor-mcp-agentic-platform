@@ -1,4 +1,4 @@
-"""LLM backend abstraction — routes to NVIDIA Nemotron, Anthropic Claude, or mock.
+"""LLM backend abstraction - routes to NVIDIA Nemotron, Anthropic Claude, or mock.
 
 The `LLM_BACKEND` env var picks the backend (default: auto-detect from available API keys).
 """
@@ -69,7 +69,7 @@ def _nvidia_chat(system: str, user: str, tools: list[dict] | None, temperature: 
 
 
 # ---------------------------------------------------------------------------
-# Anthropic Claude (dev fallback — validated the code end-to-end during scaffold)
+# Anthropic Claude (dev fallback - validated the code end-to-end during scaffold)
 # ---------------------------------------------------------------------------
 def _anthropic_chat(system: str, user: str, tools: list[dict] | None, temperature: float) -> dict[str, Any]:
     from anthropic import Anthropic
@@ -100,10 +100,10 @@ def _anthropic_chat(system: str, user: str, tools: list[dict] | None, temperatur
 
 
 # ---------------------------------------------------------------------------
-# Mock backend (no API key set) — deterministic for local testing / CI
+# Mock backend (no API key set) - deterministic for local testing / CI
 # ---------------------------------------------------------------------------
 def _mock_chat(system: str, user: str, tools: list[dict] | None) -> dict[str, Any]:
-    """Rough heuristic router — good enough to demo the flow without any API key."""
+    """Rough heuristic router - good enough to demo the flow without any API key."""
     u = user.lower()
     tool_calls: list[dict] = []
 

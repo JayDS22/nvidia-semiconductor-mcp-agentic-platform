@@ -1,6 +1,6 @@
 """FastMCP server exposing PLM + MES + ERP tool namespaces to LangGraph agents.
 
-Also usable in-process (no MCP protocol) via the imported module-level functions —
+Also usable in-process (no MCP protocol) via the imported module-level functions -
 LangGraph agents call these directly for lower latency in the demo.
 """
 from __future__ import annotations
@@ -36,7 +36,7 @@ TOOL_REGISTRY = {
 
 
 def call_tool(name: str, **kwargs) -> dict:
-    """Direct tool dispatch — used by agents. Returns error dict if tool unknown."""
+    """Direct tool dispatch - used by agents. Returns error dict if tool unknown."""
     if name not in TOOL_REGISTRY:
         return {"error": f"unknown tool: {name}", "available": list(TOOL_REGISTRY.keys())}
     try:
@@ -45,7 +45,7 @@ def call_tool(name: str, **kwargs) -> dict:
         return {"error": f"bad arguments to {name}: {e}"}
 
 
-# ---- MCP protocol server (optional — for real MCP clients) ----
+# ---- MCP protocol server (optional - for real MCP clients) ----
 def build_mcp_server():
     """Build a FastMCP-compatible server exposing all tools.
 

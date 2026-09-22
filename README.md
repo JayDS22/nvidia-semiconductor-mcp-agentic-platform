@@ -2,7 +2,7 @@
 
 **A working PoC of an MCP-based multi-agent system for wafer yield analysis, BOM verification, and supplier risk.** Built as a reference architecture for enterprise IT teams shipping agentic AI into fab operations.
 
-**Live demo:** _(deployed on Hugging Face Spaces — link at top of the repo)_
+**Live demo:** _(deployed on Hugging Face Spaces - link at top of the repo)_
 
 **Stack:** Python 3.11 · LangGraph-shape supervisor · MCP server (FastMCP) · NVIDIA Nemotron via NIM (with Claude fallback) · SQLite + JSON mock data · Streamlit UI
 
@@ -11,9 +11,9 @@
 ## Why this exists
 
 Modern semiconductor fabs run on three enterprise systems that don't talk to each other well:
-- **PLM** (Windchill / Teamcenter) — CAD + Bill of Materials
-- **MES** — yield and process-step data per wafer lot
-- **ERP** (SAP) — supplier records + inventory + risk
+- **PLM** (Windchill / Teamcenter) - CAD + Bill of Materials
+- **MES** - yield and process-step data per wafer lot
+- **ERP** (SAP) - supplier records + inventory + risk
 
 An engineer investigating a yield drop today has to open three tools. An agentic AI copilot with tool access to all three collapses the loop into one query.
 
@@ -76,7 +76,7 @@ streamlit run app/streamlit_app.py
 # opens http://localhost:8501
 ```
 
-Without an API key, the app runs on the mock LLM backend — tool routing works via keyword match, but synthesized prose is placeholder text.
+Without an API key, the app runs on the mock LLM backend - tool routing works via keyword match, but synthesized prose is placeholder text.
 
 ---
 
@@ -101,7 +101,7 @@ Live URL: `https://huggingface.co/spaces/<your-username>/nvidia-semiconductor-mc
 
 ## 10 canonical queries (recruiter-facing demo)
 
-Every query is pre-loaded in the sidebar — click and go.
+Every query is pre-loaded in the sidebar - click and go.
 
 1. Why did yield drop on lot W-2026-0142?
 2. Which supplier lot has the highest risk this month?

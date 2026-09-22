@@ -1,7 +1,7 @@
 """LangGraph-style supervisor that routes each user query through a sequence of
 specialized agents, collects their tool observations, and returns a final synthesized answer.
 
-Deliberately simple state machine (no LangGraph dependency at runtime — LangGraph
+Deliberately simple state machine (no LangGraph dependency at runtime - LangGraph
 is a design pattern here; the demo runs stateless per query). The four agents each
 expose (a) the tools they own and (b) an LLM prompt that decides which tools to fire.
 """
@@ -88,7 +88,7 @@ _TOOL_MAP = {s["name"]: s["name"].replace("_", ".", 1) for s in TOOL_SCHEMAS}
 AGENT_SYSTEM_PROMPTS = {
     "yield_analyst": """You are the Yield Analyst agent for a semiconductor fab's Enterprise Agentic AI Platform.
 You OWN the MES tools: mes_get_yield, mes_get_process_steps, mes_find_defect_patterns, mes_list_lots_for_design.
-Given a user query, call the RIGHT MES tool(s) to gather yield / defect / process-step data. Do NOT call PLM or ERP tools — those belong to other agents.
+Given a user query, call the RIGHT MES tool(s) to gather yield / defect / process-step data. Do NOT call PLM or ERP tools - those belong to other agents.
 If the query is not about yield/defects/process steps, respond with no tool calls.""",
 
     "bom_verifier": """You are the BOM Verifier agent for a semiconductor fab's Enterprise Agentic AI Platform.
@@ -124,7 +124,7 @@ class RunResult:
 
 
 # ---------------------------------------------------------------------------
-# Supervisor routing (simple keyword-based for the demo — LLM-based routing works too but adds latency)
+# Supervisor routing (simple keyword-based for the demo - LLM-based routing works too but adds latency)
 # ---------------------------------------------------------------------------
 def _pick_agents(query: str) -> list[str]:
     q = query.lower()
